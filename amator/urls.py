@@ -20,5 +20,5 @@ import page.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', page.views.home, name='home'),
-    path('notice', views.notice, name='notice'),
+    path('community', views.notice, name='community'),
 ]

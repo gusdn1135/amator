@@ -1,0 +1,57 @@
+/* COMMON */
+.body_container {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body {
+    background:url(/1.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 상단바 */
+header {
+ 
+}
+
+.header_inner {
+    max-width:1000px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    
+}
+
+.header_inner::after {
+    content:"";
+    clear:both;
+    display: block;
+}
+
+.logo {
+    float:left;
+    padding: 8px 12px;
+    font-size: 2rem;
+}
+
+.menu {
+    float:right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:15px;
+}
+.menu li {
+    padding: 8px 12px;
+    font-size:rem;
+}

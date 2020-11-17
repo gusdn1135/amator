@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% for notice in notices %}
+    <body>
+    {{ notice.title }}
+    {{ notice.content }}
+    {{ notice.create_at|date:"Y년 m월 d일"}}
+    </body>
+{% endfor %}

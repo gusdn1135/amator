@@ -1,17 +1,58 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
+    <title>YS</title>
+    <meta author="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amator-아마토르</title>
-    <style>
-        img {
-            width:100%
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- http://ogp.me/ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="YS">
+    <!-- Twitter Card -->
+    <!-- https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site" content="YS">
+    <meta property="twitter:title" content="#">
+    <meta property="twitter:description" content="#">
+    <meta property="twitter:image" content="#">
+    <meta property="twitter:url" content="#">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% block link %} {% endblock %}">
+
+
+    <!-- script -->
+    <script src="#" defer></script>
 </head>
 
-<body>
-    <img src="static/background.jpg">
+<body style="background-image: url({% static 'image/1.jpg' %});">
+    <div class="body_container">
+        
+        <!-- 상단바 -->
+        <header>
+            <div class="header_inner">
+                <div class="logo">
+                    <a href="#">amator</a>
+                </div>
+
+                <ul class="menu">
+                    <li id="login"><a href="">로그인</a></li>
+                    <li id="signup"><a href="">회원가입</a></li>
+                </ul>
+            </div>
+        </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
 </body>
 </html>
