@@ -5,6 +5,6 @@ from .models import Notice
 def home(request):
     return render(request, "home.html")
 
-def community(request):
+def community_notice(request):
     notices = Notice.objects.all()
-    return render(request, 'community.html', {'notices': notices})
+    return render(request, 'community_notice.html', {'notices': notices})
