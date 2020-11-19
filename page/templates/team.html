@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="team-container">
+    <div id="team-pagetab">
+        <button><a href="{% url 'home' %}">←</a></button>
+        <a><strong>팀정보</strong></a>
+        <a>팀가입</a>
+    </div>
+
+    <div id="team-content">
+        <div id="team-info">
+            <p>나의 소속팀 정보</p>
+            <div id="login-message">
+                <p>소속팀이 존재하지 않습니다.</p>
+                <a href="#">팀가입하기</a>
+            </div>
+        </div>
+        <div id="team-scd">
+            <p>경기일정</p>
+        </div>
+        <div id="team-squad">
+            <p>선수단</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
