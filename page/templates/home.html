@@ -1,1 +1,26 @@
-amator
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- 사이드바 -->
+<div class="aside">
+    <ul class="aside-inner">
+        <li id="home"><a href="{% url 'home' %}">HOME</a></li>
+        <li id="team"><a href="{% url 'team' %}">TEAM</a></li>
+        <li id="league"><a href="#">LEAGUE</a></li>
+        <li id="community"><a href="#">COMMUNITY</a></li>
+    </ul>
+
+    <div class="policy-bundle">
+        <div class="privacy"><a href="#">개인정보처리방침</a></div>
+        <div class="terms"><a href="#">서비스이용약관</a></div>
+    </div>
+</div>
+
+<!-- 메인 -->
+<section>
+    <div></div>
+</section>
+
+{% endblock %}
