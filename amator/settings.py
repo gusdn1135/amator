@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+# MySQL 연동을 위해 my_settings import
+import my_settings 
 
 from pathlib import Path
 
@@ -75,12 +77,8 @@ WSGI_APPLICATION = 'amator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# MySQL과 연동
+DATABASES = my_settings.DATABASES
 
 
 # Password validation
