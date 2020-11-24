@@ -22,5 +22,4 @@ urlpatterns = [
     path('', page.views.home, name='home'),
     path('community_notice', page.views.community_notice, name='community_notice'),
     path('team/', views.team, name='team'),
-
-]
+    path('signup/', views.signup, name = 'signup'),

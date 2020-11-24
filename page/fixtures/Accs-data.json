@@ -1,0 +1,60 @@
+[
+    {
+        "model":"page.Account",
+        "fields":{
+            "id":"indiv",
+            "pw":"0000"
+        }
+    },
+    {
+        "model":"page.Account",
+        "fields":{
+            "id":"team",
+            "pw":"0000"
+        }
+    },
+    {
+        "model":"page.Account",
+        "fields":{
+            "id":"org",
+            "pw":"0000"
+        }
+    },
+    {
+        "model":"page.IndivAcc",
+        "fields":{
+            "id": "indiv",
+            "indiv_studentid":2000000000,
+            "indiv_name":"김개인",
+            "indiv_sex":"F",
+            "indiv_bdate":"2000-01-01",
+            "indiv_belong":"단과대학",
+            "indiv_address":"서울특별시",
+            "indiv_pnumber": 0,
+            "indiv_email":"indiv@yonsei.ac.kr",
+            "teamcode":null
+        }
+    },
+    {
+        "model":"page.TeamAcc",
+        "fields":{
+            "id": "team",
+            "team_name":"test team",
+            "team_pic" : null,
+            "team_belong" : "단과대학",
+            "cap_name" : "김캡틴",
+            "cap_eamil" : "captain@yonsei.ac.kr",
+            "cap_pnumber" : 1000000000
+        }
+    },
+    {
+        "model":"page.OrgAcc",
+        "fields":{
+            "id":"org", 
+            "org_belong" :"총학생회",
+            "cap_name" : "김총학",
+            "cap_eamil" : "org@yonsei.ac.kr",
+            "cap_pnumber" :1000000000
+        }
+    }
+]

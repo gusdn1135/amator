@@ -8,6 +8,11 @@ def home(request):
 def team(request):
     return render(request, 'team.html')
 
+
+def signup(request):
+    return render(request, 'signup.html')
+
 def community_notice(request):
     notices = Notice.objects.all()
     return render(request, 'community_notice.html', {'notices': notices})
+
