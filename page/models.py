@@ -206,3 +206,12 @@ class TeamAcc(models.Model):
         managed = False
         db_table = 'team_acc'
         unique_together = (('id', 'team_name'),)
+        
+        
+class Notice(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    create_at = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.title

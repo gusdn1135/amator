@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<style>
+    div {
+        font-size: 50px;
+        text-align: center;
+    }
+    a {
+        border-top: black;
+        border-bottom: black;
+        border-left: black;
+        border-right: black;
+    }
+</style>
+
+{% block content %}
+
+<div style="font-weight: bold;">공지사항</div>
+<div style="color: whitesmoke;">홍보 게시판</div>
+<div style="color: whitesmoke;">잡담방</div>
+
+{% for notice in notices %}
+    <a href="###">
+    {{ notice.title }}
+    {{ notice.content }}
+    {{ notice.create_at|date:"Y년 m월 d일"}}
+    </a>
+{% endfor %}
+
+{% endblock %}
