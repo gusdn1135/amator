@@ -1,27 +1,24 @@
 <style>
-    div {
-        font-size: 20pt;
-        text-align: center;
+    .community_menu{
+    text-align: center;
+    font-size: 20px;
     }
-    a {
-        border-top: black;
-        border-bottom: black;
-        border-left: black;
-        border-right: black;
+    #grid{
+        display: gird;
+        grid-template-columns: 100px;
     }
 </style>
-
 
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
 
-<div style="font-weight: bold;">공지사항</div>
-<div style="color: whitesmoke;">홍보 게시판</div>
-<div style="color: whitesmoke;">잡담방</div>
+<a class="community_menu" href="{% url 'community_notice' %}">공지사항</a>
+<a class="community_menu" href="###">홍보 게시판</a>
+<a class="community_menu" href="###">잡담방</a>
 
+<div id="gird">
 {% for notice in notices %}
     <a href="###">
     {{ notice.title }}
@@ -29,5 +26,7 @@
     {{ notice.create_at|date:"Y년 m월 d일"}}
     </a>
 {% endfor %}
+</div>
+
 
 {% endblock %}
