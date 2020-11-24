@@ -24,7 +24,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% block link %} {% endblock %}">
 
 
@@ -32,14 +32,13 @@
     <script src="#" defer></script>
 </head>
 
-<body style="background-image: url({% static 'image/1.jpg' %});">
+<body style="background-image: url(static/image/1.jpg);">
     <div class="body_container">
-        
         <!-- 상단바 -->
         <header>
             <div class="header_inner">
                 <div class="logo">
-                    <a href="#">amator</a>
+                    <a href="{% url 'home' %}">amator</a>
                 </div>
 
                 <ul class="menu">
@@ -48,11 +47,22 @@
                 </ul>
             </div>
         </header>
+    </div>
+    
+    {% block content %}
+    {% endblock %}
 
-        {% block content %}
-
-        {% endblock %}
-
+    <div class="footer_container">
+        <div class="footer_inner">
+            <ul id="footer">
+                <li><a href="#">개인정보처리방침 |
+                </a></li>
+                <li><a href="#">서비스이용약관</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>Copyright ⓒ Amator. All Rights Reserved.</p>
+        </div>
     </div>
 </body>
 </html>
