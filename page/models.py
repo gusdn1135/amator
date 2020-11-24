@@ -143,7 +143,7 @@ class IndivAcc(models.Model):
     indiv_bdate = models.DateField()
     indiv_belong = models.CharField(max_length=45)
     indiv_address = models.CharField(max_length=45)
-    indiv_pnumber = models.IntegerField()
+    indiv_pnumber = models.CharField(max_length=11)
     indiv_email = models.CharField(max_length=45)
     teamcode = models.ForeignKey('Team', models.DO_NOTHING, db_column='TeamCode', blank=True, null=True)  # Field name made lowercase.
 
@@ -174,7 +174,7 @@ class OrgAcc(models.Model):
     org_belong = models.CharField(max_length=45)
     cap_name = models.CharField(max_length=5)
     cap_eamil = models.CharField(max_length=45)
-    cap_pnumber = models.IntegerField()
+    cap_pnumber = models.CharField(max_length=11)
 
     class Meta:
         managed = False
@@ -200,7 +200,7 @@ class TeamAcc(models.Model):
     team_belong = models.CharField(max_length=45)
     cap_name = models.CharField(max_length=5)
     cap_eamil = models.CharField(max_length=45)
-    cap_pnumber = models.IntegerField()
+    cap_pnumber = models.CharField(max_length=11)
 
     class Meta:
         managed = False
