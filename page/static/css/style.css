@@ -1,4 +1,10 @@
 /* COMMON */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .body_container {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;

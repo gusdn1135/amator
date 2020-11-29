@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amator</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("static/image/bi.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .login::before {
+            content: "";
+            position: absolute; z-index: 1;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-color: rgba(0,0,0,.3);
+        }
+
+        .login-form {
+            position: relative; z-index: 2;
+        }
+        .login-form h1{
+            font-size: 32px; color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .act-area {
+            font-size: 16px; color: #fff;
+            text-align: center;
+        }
+        .act-area input {
+            margin-right: 4px;
+        }
+
+        .int-area {width: 400px; position: relative;}
+        .int-area input {
+            width: 100%;
+            padding: 20px 10px 10px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #999;
+            font-size: 18px; color: #fff;
+            outline: none;
+        }
+        .int-area label {
+            position: absolute; left: 10px; top: 15px;
+            font-size: 18px; color: #999;
+            transition: all .5s ease;
+        }
+        
+        .int-area label.warning {
+            color: red !important;
+            animation: warning .3s ease;
+            animation-iteration-count: 3;
+        }
+
+
+        .int-area input:focus + label,
+        .int-area input:valid + label {
+            top: 0;
+            font-size: 13px; color: #166cea;
+        }
+
+        .btn-area {margin-top: 30px;}
+        .btn-area button {
+            width: 100%; height: 50px;
+            background: #166cea;
+            color: #fff;
+            font-size: 20px;
+            border: none;
+            border-radius: 25px;
+        }
+
+        .caption {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .caption a {
+            font-size: 15px; color: #999;
+            text-decoration: none;
+        }
+        .caption #text {
+            color: #999;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="login">
+        <div class="login-form">
+            <h1>amator<br><strong>LOGIN</strong></h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="act-area">
+                    <input type="radio" name="account" value="I">개인
+                    <input type="radio" name="account" value="T">팀
+                    <input type="radio" name="account" value="O">주최자
+                </div>
+                <div class="int-area">
+                    <input type="text" name="id" id="id" autocomplete="off" required>
+                    <label for="id">USER NAME</label>
+                </div>
+                <div class="int-area">
+                    <input type="password" name="pw" id="pw" autocomplete="off" required>
+                    <label for="pw">PASSWORD</label>
+                </div>
+                <div class="btn-area">
+                    <button id="btn" type="submit">LOGIN</button>
+                </div>
+                <div class="caption">
+                    <a href="">아이디 찾기</a> <a>|</a>
+                    <a href="">비밀번호 찾기</a> <a>|</a>
+                    <a href="">회원가입</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let id = $('#id');
+        let pw = $('#pw');
+        let btn = $('#btn');
+
+        $(btn).on('click', function() {
+            if($(id).val == "") {
+                $(id).next('label').addClass('warning');
+            }
+            else if($(pw).val == "") {
+                $(pw).next('label').addClass('warning');
+            }
+        });
+    </script>
+</body>
+</html>
