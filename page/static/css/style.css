@@ -151,3 +151,21 @@ button{
 .footer_container .copyright{
     text-align: center;
 }
+
+/* community_notice */
+.community_tap{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+.grid{
+    display: grid;
+    padding-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 10px;
+}
