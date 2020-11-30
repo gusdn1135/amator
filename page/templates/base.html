@@ -36,33 +36,42 @@
     <div class="body_container">
         <!-- 상단바 -->
         <header>
-            <div class="header_inner">
-                <div class="logo">
-                    <a href="{% url 'home' %}">amator</a>
-                </div>
+            <header>
+                <div class="header_inner">
+                    <div class="logo">
+                        <a href="#">amator</a>
+                    </div>
 
-                <ul class="menu">
-                    <li id="login"><a href="">로그인</a></li>
-                    <li id="signup"><a href="">회원가입</a></li>
+                    <ul class="aside-inner">
+                        <li id="home"><a href="#">HOME</a></li>
+                        <li id="team"><a href="#">TEAM</a></li>
+                        <li id="league"><a href="#">LEAGURE</a></li>
+                        <li id="community"><a href="#">COMMUNITY</a></li>
+                        <li id="community"><a href="#">MY PAGE</a></li>
+                    </ul>
+                </div>
+            </header>
+
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="footer_container">
+            <div class="footer_inner">
+                <ul id="footer">
+                    <li><a href="#">개인정보처리방침 |
+                        </a></li>
+                    <li><a href="#">서비스이용약관</a></li>
                 </ul>
             </div>
-        </header>
+            <div class="copyright">
+                <p>Copyright ⓒ Amator. All Rights Reserved.</p>
+            </div>
+        </div>
     </div>
-    
-    {% block content %}
-    {% endblock %}
 
-    <div class="footer_container">
-        <div class="footer_inner">
-            <ul id="footer">
-                <li><a href="#">개인정보처리방침 |
-                </a></li>
-                <li><a href="#">서비스이용약관</a></li>
-            </ul>
-        </div>
-        <div class="copyright">
-            <p>Copyright ⓒ Amator. All Rights Reserved.</p>
-        </div>
-    </div>
+
 </body>
+
 </html>
