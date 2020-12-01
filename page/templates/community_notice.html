@@ -19,7 +19,7 @@
     {% for notice in notices %}
     <tr>
         <td style="padding-top: 20px;">{{ notice.title }}</td>
-        <td style="padding-top: 20px;">{{ notice.summary}}</td>
+        <td style="padding-top: 20px;"><a href="{% url 'community_notice_detail' notice.id %}">{{ notice.summary}}</a></td>
         <td style="padding-top: 20px;">{{ notice.create_at|date:"Y년 m월 d일"}}</td>
     </tr>
     {% endfor %}
