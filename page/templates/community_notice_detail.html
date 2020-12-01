@@ -9,17 +9,15 @@
     <a href="{% url 'community_chat' %}">잡담방</a>
 </div>
 
-<div class="grid">
+<div>
     {% for notice in notices %}
-    <div>
-        <a href="{% url 'community_notice_detail' notice.id %}">
-            <h1 style="font-weight: bold;">{{ notice.title }} {{ notice.create_at|date:"Y년 m월 d일"}}<br></h1>
-            <p>{{ notice.summary}}...more</p>
-            <br>
-        </a>
+    <div id="notice_title">
+        <h1>{{ notice.title }}<br></h1>
+        <p>{{ notice.content}}</p>
+        {{ notice.create_at|date:"Y년 m월 d일"}}<br>
     </div>
     {% endfor %}
-</div>
 
+</div>
 
 {% endblock %}

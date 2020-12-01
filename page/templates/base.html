@@ -25,44 +25,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% block link %} {% endblock %}">
 
 
     <!-- script -->
     <script src="#" defer></script>
+    <style>
+        .body_container {
+        background: gray url({% static "image/bi.jpg" %}) no-repeat center;
+        background-size: cover;
+        height: 100vh;
+        }
+    </style>
 </head>
 
-<body style="background-image: url(static/image/1.jpg);">
+<body>
     <div class="body_container">
-        <!-- 상단바 -->
-        <header>
-            <div class="header_inner">
-                <div class="logo">
-                    <a href="{% url 'home' %}">amator</a>
-                </div>
+    <div class="body_contents">
+         <!-- 상단바 -->
+         <header>
+            <header>
+                <div class="header_inner">
+                    <div class="logo">
+                        <a href="#">amator</a>
+                    </div>
 
-                <ul class="menu">
-                    <li id="login"><a href="">로그인</a></li>
-                    <li id="signup"><a href="{%url 'signup_agreement'%}">회원가입</a></li>
+                    <ul class="aside-inner">
+                        <li id="home"><a href="#">HOME</a></li>
+                        <li id="team"><a href="#">TEAM</a></li>
+                        <li id="league"><a href="#">LEAGUE</a></li>
+                        <li id="community"><a href="#">COMMUNITY</a></li>
+                        <li id="community"><a href="#">MY PAGE</a></li>
+                    </ul>
+                </div>
+            </header>
+
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="footer_container">
+            <div class="footer_inner">
+                <ul id="footer">
+                    <li><a href="#">개인정보처리방침 |
+                        </a></li>
+                    <li><a href="#">서비스이용약관</a></li>
                 </ul>
             </div>
-        </header>
+            <div class="copyright">
+                <p>Copyright ⓒ Amator. All Rights Reserved.</p>
+            </div>
+        </div>
     </div>
-    
-    {% block content %}
-    {% endblock %}
+       
+    </div>
 
-    <div class="footer_container">
-        <div class="footer_inner">
-            <ul id="footer">
-                <li><a href="#">개인정보처리방침 |
-                </a></li>
-                <li><a href="#">서비스이용약관</a></li>
-            </ul>
-        </div>
-        <div class="copyright">
-            <p>Copyright ⓒ Amator. All Rights Reserved.</p>
-        </div>
-    </div>
+
 </body>
+
 </html>
