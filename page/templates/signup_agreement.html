@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+[약관]
+<br>
+회원가입을 위해서 아래 약관을 동의하셔야 합니다
+<form method="POST" action="{% url 'signup_agreement' %}">
+    {% csrf_token %}
+    <div>
+    <label for="agree1">(필수) amator 이용약관 동의</label>
+    <input type="radio" name="agree1" id="agree1" value="동의" required = "required">동의
+    </div>
+
+    <div>
+    <label for="agree2">(필수) 개인정보처리방침 동의</label>
+    <input type="radio" name="agree2" id="agree2" value="동의" required = "required">동의
+    </div>
+
+    <div>
+    <input type="submit" value="동의">
+    <input type="button" value="비동의" onclick="No()">
+    </div>
+</form>
+
+<script>
+    function No(){
+        alert("회원가입이 불가능합니다. 메인페이지로 돌아갑니다.");
+        window.location.href='/';
+    }
+</script>
+{% endblock %}
