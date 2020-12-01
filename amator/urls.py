@@ -18,7 +18,7 @@ from django.urls import path
 from page import views
 
 urlpatterns = [
-    path('admin/', page.admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', page.views.home, name='home'),
     path('community_notice', page.views.community_notice, name='community_notice'),
     path('team/', views.team, name='team'),
