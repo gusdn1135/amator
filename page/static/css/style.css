@@ -5,24 +5,21 @@
     box-sizing: border-box;
 }
 
+body {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .body_container {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 10px;
+    margin: 10px 10% 20px 10%;
 }
 
 a {
     text-decoration: none;
     color: black;
 }
-
-body {
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 
 /* 상단바 */
 .header_inner {
@@ -80,35 +77,40 @@ body {
 
 /* 팀 */
 button{
-    border: black 2px solid;
+    border: black 3px solid;
     border-radius: 50%;
     background-color: white;
     font-size: 20px;
     font-weight: bold;
+    padding-left: 4px;
+    padding-right: 4px;
     padding-bottom: 5px;
     float: left;
 }
 
-.team-container #team-pagetab{
+.team-container #team-pagetab {
     text-align: center;
     vertical-align: bottom;
 }
-.team-container #team-content{
-    padding: 0 36px 0 36px;
+.team-container #team-content {
+    padding: 36px 36px 0 36px;
+}
+#team-pagetab .pagetab {
+    padding-top: 12px;
 }
 
-#login-message{
+#login-message {
     padding-left: 36px;
     text-align: center;
 }
-#login-message button{
+#login-message button {
     padding: 2px 12px;
 }
-#login-message p{
+#login-message p {
     margin-top: 0;
     margin-bottom: 5px;
 }
-#login-message a{
+#login-message a {
     text-decoration: none;
     padding: 2px 5px 3px 5px;
     border: 1px solid grey;
@@ -118,16 +120,16 @@ button{
     font-weight: bold;
     border-radius: 15px;
 }
-#login:focus{
+#login:focus {
     outline: none;
 }
-#login:hover{
+#login:hover {
     cursor: pointer;
 }
 
 /* footer */
 .footer_container{
-    width:100%;
+    width: 80%;
     height:50px;
     position:absolute;
     bottom:0;

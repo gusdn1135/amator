@@ -12,6 +12,9 @@ def home(request):
 def team(request):
     return render(request, 'team.html')
 
+def team_src(request):
+    return render(request, 'team_src.html')
+
 def signup(request):
     return render(request, 'signup.html')
 

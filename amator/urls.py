@@ -19,10 +19,11 @@ from page import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.login, name='login'),
+    path('', views.login, name='login'),
     path('home/', views.home, name='home'),
     path('community_notice', views.community_notice, name='community_notice'),
     path('team/', views.team, name='team'),
+    path('team_src/', views.team_src, name='team_src'),
     path('signup/', views.signup, name = 'signup'),
     path('community_notice', views.community_notice, name='community_notice'),
     path('community_pr', views.community_pr, name='community_pr'),
