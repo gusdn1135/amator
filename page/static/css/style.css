@@ -159,13 +159,18 @@ button{
     padding-top: 10px;
     padding-bottom: 20px;
     margin-top: 20px;
+    border-bottom: solid black 2.5px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.grid{
-    display: grid;
+
+table{
+    text-align: center;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding-top: 20px;
-    margin-left: 300px;
-    margin-right: 300px;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    margin-top: 10px;
+    padding-bottom: 10px;
 }
