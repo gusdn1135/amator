@@ -114,6 +114,13 @@
                 <div class="int-area">
                     <input type="password" name="pw" id="pw" autocomplete="off" required>
                     <label for="pw">PASSWORD</label>
+                    <h5 style="color:red">
+                        {% if messages %}
+                            {% for message in messages %}
+                            <strong>{{ message.tags }}!</strong> {{ message.message }}
+                            {% endfor %}
+                        {% endif %}
+                    </h5>
                 </div>
                 <div class="btn-area">
                     <button id="btn" type="submit">LOGIN</button>
@@ -126,6 +133,7 @@
             </form>
         </div>
     </div>
+
 
     <script>
         let id = $('#id');
@@ -140,6 +148,7 @@
                 $(pw).next('label').addClass('warning');
             }
         });
+
     </script>
 </body>
 </html>

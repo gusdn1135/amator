@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
 from .models import Notice, Account, IndivAcc, TeamAcc
+from django.contrib import messages
 
 # Create your views here.
 def login(request):
@@ -14,11 +15,9 @@ def login(request):
                 request.session['user'] = user_id
                 return redirect('home')
             else:
-                print('안돼요')
-                return redirect('login')
+                messages.error(request, '비밀번호 오류!')
         else:
-            print('돌아가')
-            return redirect('login')
+            messages.error(request, '아이디 오류!')
 
     return render(request, 'login.html')
 
