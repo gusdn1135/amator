@@ -25,17 +25,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% block link %} {% endblock %}">
 
 
     <!-- script -->
     <script src="#" defer></script>
+    <style>
+        .body_container {
+        background: gray url({% static "image/bi.jpg" %}) no-repeat center;
+        background-size: cover;
+        height: 100vh;
+        }
+    </style>
 </head>
 
-<body style="background-image: url(static/image/1.jpg);">
+<body>
     <div class="body_container">
-        <!-- 상단바 -->
-        <header>
+    <div class="body_contents">
+         <!-- 상단바 -->
+         <header>
             <header>
                 <div class="header_inner">
                     <div class="logo">
@@ -45,7 +52,7 @@
                     <ul class="aside-inner">
                         <li id="home"><a href="#">HOME</a></li>
                         <li id="team"><a href="#">TEAM</a></li>
-                        <li id="league"><a href="#">LEAGURE</a></li>
+                        <li id="league"><a href="#">LEAGUE</a></li>
                         <li id="community"><a href="#">COMMUNITY</a></li>
                         <li id="community"><a href="#">MY PAGE</a></li>
                     </ul>
@@ -69,6 +76,8 @@
                 <p>Copyright ⓒ Amator. All Rights Reserved.</p>
             </div>
         </div>
+    </div>
+       
     </div>
 
 
