@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amator</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("static/image/bi.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .signup-form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+            height: 60vh;
+            margin-top: 5%;
+            border-radius: 14px;
+            background-color: #d6e0f0;
+            opacity: 80%;
+            text-align:center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup">
+        <div class="signup-form">
+            <p style="font-size: 25px; font-weight: bold;">amator<br><strong>JOIN</strong></p>
+            <br><p style="font-size:12px;">회원가입을 위해서 아래 약관을 동의하셔야 합니다</p><br>
+
+            <form method="POST" action="{% url 'signup_agreement' %}">
+                {% csrf_token %}
+                <div>
+                <label for="agree1">(필수) amator 이용약관 동의</label>
+                <input type="radio" name="agree1" id="agree1" value="동의" required = "required">동의
+                <br>
+                <textarea rows="5" cols="60">Amator 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 Amator 서비스의 이용과 관련하여 Amator 서비스를 제공하는 Amator 주식회사(이하 ‘Amator’)와 이를 이용하는 Amator 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 Amator 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.&#10;Amator 서비스를 이용하시거나 Amator 서비스 회원으로 가입하실 경우 여러분은 본 약관 및 관련 운영 정책을 확인하거나 동의하게 되므로, 잠시 시간을 내시어 주의 깊게 살펴봐 주시기 바랍니다. 다양한 Amator 서비스를 즐겨보세요.
+                </textarea>
+                </div>
+                
+                <br>
+                <div>
+                <label for="agree2">(필수) 개인정보처리방침 동의</label>
+                <input type="radio" name="agree2" id="agree2" value="동의" required = "required">동의
+                <br>
+                <textarea rows="5" cols="60">개인정보보호법에 따라 Amator에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다&#10;1. 수집하는 개인정보&#10;이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 Amator 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, Amator는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.
+                </textarea>
+                </div>
+
+                <br>
+                <div>
+                <input type="submit" style="margin-right:5%; font-size: 16px; height:30px; width:60px;" value="동의">
+                <input type="button" style="margin-left:5%; font-size: 16px; height:30px; width:60px;" value="비동의" onclick="No()">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function No(){
+        alert("회원가입이 불가능합니다. 메인페이지로 돌아갑니다.");
+        window.location.href='/';
+    }
+</script>
+</html>
+{% endblock %}

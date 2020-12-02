@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amator</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("static/image/bi.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .signup-form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+            height: 80vh;
+            margin-top: 1%;
+            border-radius: 14px;
+            background-color: #d6e0f0;
+            opacity: 80%;
+            text-align:left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup">
+        <div class="signup-form">
+            <p style="font-size: 25px; font-weight: bold; text-align: center;">amator<br><strong>JOIN</strong></p>
+            <br>
+            <form  method="POST" action="{% url 'signup_indiv' %}">
+                {% csrf_token %}
+                <p>
+                    <label for="id">아이디</label>
+                    <input id="id" name="id" type='text' required="required" maxlength="10" placeholder="10자 이내" autocomplete="off">
+                    <input type="button" value="중복확인" id="duplcheck" >
+                </p>
+                <br>
+                <p>
+                    <label for="pw">비밀번호</label>
+                    <input id="pw" name="pw" type="password" required="required" maxlength="20" placeholder="20자 이내" autocomplete="off">
+                </p>
+                <br>
+                <p>
+                    <label for="confirm">비밀번호 재확인</label>
+                    <input id="confirm" name="confirm" type="password" required="required" maxlength="20" autocomplete="off">
+                </p>
+                <br>
+                <p>
+                    <label for="name">이름</label>
+                    <input id="name" name="name" type='text' required="required" maxlength="5" placeholder="5자 이내" autocomplete="off">
+                </p>
+                <br>
+                <p>
+                    <label for="studentID">학번</label>
+                    <input id="studentID" name="studentID" type="number" required="required" autocomplete="off">
+                </p>
+                <br>
+                <p>
+                    <label for="belong">소속</label>
+                    <input id="belong" name="belong" type="text" required="required" placeholder="소속 단과대학 입력" autocomplete="off">
+                </p>
+                <br>
+                <p>
+                    <label for="sex">성별</label>
+                    <select id="sex" name="sex" aria-label="성별" required="required" >
+                        <option value selected>성별</option>
+                        <option value="M">남자</option>
+                        <option value="F">여자</option>
+                    </select>
+                </p>
+                <br>
+                <p>
+                    <label for="bdate">생년월일</label>
+                    <input id="bdate" name="bdate" required="required" type='date'>
+                </p>
+                <br>
+                <p>
+                    <label for="address">주소</label>
+                    <input id="address" name="address" required="required" type='text'>
+                </p>
+                <br>
+                <p>
+                    <label for="pnumber">전화번호</label>
+                    <input name="pnumber" required="required" type='text'>
+                </p>
+                <br>
+                <p>
+                    <label for="email">이메일</label>
+                    <input name="email" required="required" type='text'>
+                </p>
+                <br>
+                <input type="submit" style="font-size: 16px; height:30px; width:70px;" value="회원가입">
+            </form>
+            
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function No(){
+        alert("회원가입이 불가능합니다. 메인페이지로 돌아갑니다.");
+        window.location.href='/';
+    }
+</script>
+</html>
+{% endblock %}
+

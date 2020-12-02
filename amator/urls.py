@@ -23,10 +23,18 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('community_notice', views.community_notice, name='community_notice'),
     path('team/', views.team, name='team'),
+<<<<<<< HEAD
     path('team_src/', views.team_src, name='team_src'),
     path('signup/', views.signup, name = 'signup'),
+=======
+>>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
     path('community_notice', views.community_notice, name='community_notice'),
     path('community_pr', views.community_pr, name='community_pr'),
     path('community_chat', views.community_chat, name='community_chat'),
     path('notice/<int:notice_id>', views.community_notice_detail, name='community_notice_detail'),
+    path('signup_agreement/', views.signup_agreement, name = 'signup_agreement'),
+    path('signup_type/', views.signup_type, name = 'signup_type'),
+    path('signup_indiv/', views.signup_indiv, name = 'signup_indiv'),
+    path('signup_team/', views.signup_team, name = 'signup_team'), 
+    path('league_temp/',views.league_temp, name='league_temp'),
 ]
