@@ -387,6 +387,11 @@ td {
     bottom: 30px;
 }
 
+.bg-bundle-league #team-pagetab {
+    text-align: center;
+    vertical-align: bottom;
+}
+
 /* league_detail */
 
 .league_title{
