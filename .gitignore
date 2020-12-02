@@ -11,3 +11,5 @@ db.sqlite3
 db.sqlite3-journal
 media
 venv
+amator.__pycache__
+page.__pycache__
