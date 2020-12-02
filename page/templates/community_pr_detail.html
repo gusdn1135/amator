@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="community_tap">
+    <a href="{% url 'community_notice' %}">공지사항&nbsp;&nbsp;</a>
+    <a href="{% url 'community_pr' %}" style="font-weight: bold;">홍보 게시판&nbsp;&nbsp;</a>
+    <a href="{% url 'community_chat' %}">잡담방</a>
+</div>
+
+{% for pr in prs %}
+{{ pr.title }}<br>
+{{ pr.content}}<br>
+{{ pr.create_at|date:"Y년 m월 d일"}}<br>
+{% endfor %}
+
+{% endblock %}

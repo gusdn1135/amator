@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
-from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
+from .models import Notice, Pr, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -108,7 +108,9 @@ def community_notice(request):
     return render(request, 'community_notice.html', {'notices': notices})
 
 def community_pr(request):
-    return render(request, 'community_pr.html')
+    prs = Pr.objects.all()
+    author = Account.objects.all()
+    return render(request, 'community_pr.html', {'prs':prs})
 
 def community_chat(request):
     return render(request, 'community_chat.html')
@@ -117,6 +119,11 @@ def community_notice_detail(request, notice_id):
     notice_detail = get_object_or_404(Notice, pk=notice_id)
 
     return render(request, 'community_notice_detail.html', {'notice': notice_detail})
+
+def community_pr_detail(request, pr_id):
+    pr_detail = get_object_or_404(Pr, pk=pr_id)
+
+    return render(request, 'community_pr_detail.html', {'pr': pr_detail})
 
 def login_view(request):
     if request.method == "POST":

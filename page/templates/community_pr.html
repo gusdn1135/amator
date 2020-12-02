@@ -1,46 +1,33 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="kr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <style>
+{% block content %}
 
-    </style>
-</head>
-
-<body>
-    <div class="body_container">
-        <!-- 상단바 -->
-        <header>
-            <div class="header_inner">
-                <div class="logo">
-                    <a href="{% url 'home' %}">amator</a>
-                </div>
-
-                <ul class="menu">
-                    <li id="login"><a href="">로그인</a></li>
-                    <li id="signup"><a href="">회원가입</a></li>
-                </ul>
-            </div>
-        </header>
-    </div>
-    
-
-    <div class="footer_container">
-        <div class="footer_inner">
-            <ul id="footer">
-                <li><a href="#">개인정보처리방침 |
-                </a></li>
-                <li><a href="#">서비스이용약관</a></li>
-            </ul>
+<div class="bg-bundle-league">
+    <div id="team-pagetab">
+        <button><a href="{% url 'home' %}">←</a></button>
+        <div class="pagetab">
+                <a href="{% url 'community_notice' %}" style="font-style: unset;">공지사항&nbsp;&nbsp;</a>
+                <a href="{% url 'community_pr' %}">홍보 게시판&nbsp;&nbsp;</a>
+                <a href="{% url 'community_chat' %}">잡담방</a>
         </div>
-        <div class="copyright">
-            <p>Copyright ⓒ Amator. All Rights Reserved.</p>
-        </div>
+
+        <table>
+            <tr style="text-align: center; font-size: 20px; font-weight: bold;">
+                <td style="width: 200px;">작성자</td>
+                <td style="width: 80x;">제목</td>
+                <td style="width: 150px;">작성일</td>
+            </tr>
+            {% for pr in prs %}
+            <tr>
+                <td style="padding-top: 20px;">{{ pr.author }}</td>
+                <td style="padding-top: 20px;">{{ pr.title }}</td>
+                <td style="padding-top: 20px;">{{ pr.create_at|date:"Y년 m월 d일"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
-</body>
-</html>
+</div>
+
+
+{% endblock %}
