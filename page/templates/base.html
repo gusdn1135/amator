@@ -50,11 +50,11 @@
                     </div>
 
                     <ul class="aside-inner">
-                        <li id="home"><a href="#">HOME</a></li>
-                        <li id="team"><a href="#">TEAM</a></li>
-                        <li id="league"><a href="#">LEAGUE</a></li>
-                        <li id="community"><a href="#">COMMUNITY</a></li>
-                        <li id="community"><a href="#">MY PAGE</a></li>
+                        <li id="home"><a href="{% url 'home' %}">HOME</a></li>
+                        <li id="team"><a href="{% url 'team' %}">TEAM</a></li>
+                        <li id="league"><a href="{% url 'league' %}">LEAGUE</a></li>
+                        <li id="community"><a href="{% url 'community_notice' %}">COMMUNITY</a></li>
+                        <li id="my page"><a href="#">MY PAGE</a></li>
                     </ul>
                 </div>
             </header>
