@@ -1,8 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
+<<<<<<< HEAD
 from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
 from django.contrib import messages
 from django.core.paginator import Paginator
+=======
+from .models import Notice, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
+from django.contrib import messages
+from django.core.paginator import Paginator
+
+>>>>>>> 21d563a955e287f2e616c28d27bd25289aa32b71
 
 # Create your views here.
 def login(request):
@@ -77,6 +84,9 @@ def signup_team(request):
             cap_eamil = request.POST['cap_email'], cap_pnumber = request.POST['cap_pnumber'])
             teamAcc.save()
 
+            team = Team(id = TeamAcc.objects.get(id=request.POST['id']))
+            team.save()
+
             return redirect('home')
     
 
@@ -89,7 +99,7 @@ def league_temp(request):
         if(OrgAcc.objects.filter(id=current_account).exists()):
             print('주최자 계정 접속 성공! 곧 리그 만들어드림!')
             league = League(id = OrgAcc.objects.get(id=current_account), league_name=request.POST['league_name'],
-            league_date=request.POST['league_date'], league_location=request.POST['league_location'])
+            league_date=request.POST['league_date'], league_D_date=request.POST['league_D_date'], league_location=request.POST['league_location'])
             league.save()
             print(league.leaguecode)
             # 리그 생성 성공 시 임시로 home으로 redirect
@@ -132,4 +142,8 @@ def team_src(request):
     return render(request, 'team_src.html', {'teams':teams})
 
 def league_detail(request):
+<<<<<<< HEAD
     return render(request, "league_detail.html")
+=======
+    return render(request, "league_detail.html")
+>>>>>>> 21d563a955e287f2e616c28d27bd25289aa32b71
