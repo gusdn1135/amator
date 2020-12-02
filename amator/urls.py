@@ -28,4 +28,5 @@ urlpatterns = [
     path('community_pr', views.community_pr, name='community_pr'),
     path('community_chat', views.community_chat, name='community_chat'),
     path('notice/<int:notice_id>', views.community_notice_detail, name='community_notice_detail'),
+    path('pr/<int:pr_id>', views.community_pr_detail, name='community_pr_detail'),
 ]

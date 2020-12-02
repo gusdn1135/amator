@@ -11,7 +11,7 @@
 
 <div>
     {% for notice in notices %}
-    <div id="notice_title">
+    <div>
         <h1>{{ notice.title }}<br></h1>
         <p>{{ notice.content}}</p>
         {{ notice.create_at|date:"Y년 m월 d일"}}<br>
