@@ -1,15 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
-<<<<<<< HEAD
 from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
 from django.contrib import messages
 from django.core.paginator import Paginator
-=======
-from .models import Notice, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
-from django.contrib import messages
-from django.core.paginator import Paginator
-
->>>>>>> 21d563a955e287f2e616c28d27bd25289aa32b71
 
 # Create your views here.
 def login(request):
@@ -142,8 +135,4 @@ def team_src(request):
     return render(request, 'team_src.html', {'teams':teams})
 
 def league_detail(request):
-<<<<<<< HEAD
     return render(request, "league_detail.html")
-=======
-    return render(request, "league_detail.html")
->>>>>>> 21d563a955e287f2e616c28d27bd25289aa32b71
