@@ -84,7 +84,7 @@ def league_temp(request):
         if(OrgAcc.objects.filter(id=current_account).exists()):
             print('주최자 계정 접속 성공! 곧 리그 만들어드림!')
             league = League(id = OrgAcc.objects.get(id=current_account), league_name=request.POST['league_name'],
-            league_date=request.POST['league_date'], league_location=request.POST['league_location'])
+            league_date=request.POST['league_date'], league_D_date=request.POST['league_D_date'], league_location=request.POST['league_location'])
             league.save()
             print(league.leaguecode)
             # 리그 생성 성공 시 임시로 home으로 redirect
