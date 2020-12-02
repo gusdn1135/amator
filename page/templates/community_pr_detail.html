@@ -10,8 +10,8 @@
 </div>
 
 {% for pr in prs %}
-<h1>{{ pr.title }}<br></h1>
-<p>{{ pr.content}}<br></p>
+{{ pr.title }}<br>
+{{ pr.content}}<br>
 {{ pr.create_at|date:"Y년 m월 d일"}}<br>
 {% endfor %}
 
