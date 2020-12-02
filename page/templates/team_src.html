@@ -4,23 +4,31 @@
 <div class="team-container">
     <div id="team-pagetab">
         <button><a href="{% url 'home' %}">←</a></button>
-        <a href="{% url 'team' %}">팀정보</a>
-        <a href="{% url 'team_src' %}"><strong>팀가입</strong></a>
+        <div class="pagetab">
+            <a href="{% url 'team' %}">소속팀</a>
+            <a href="{% url 'team_src' %}">팀가입</a>
+        </div>
     </div>
 
     <div id="team-content">
         <div id="team-info">
-            <p>나의 소속팀 정보</p>
-            <div id="login-message">
-                <p>소속팀이 존재하지 않습니다.</p>
-                <a href="{% url 'team_src' %}">팀가입하기</a>
+            <p>팀 목록</p>
+            {% for team in teams %}
+            <div class="card-box">
+                <div class="img-gradient"></div>
+                <img src="{{team.team_pic}}" alt="">
+                <div class="text-wrap">
+                    <ul>
+                        <li class="team_name">{{team.team_name}}</li>
+                        <li class="team_belong">{{team.team_belong}}</li>
+                        <li>팀 소개</li>
+                    </ul>
+                </div>
+                <div class="apl-btn">
+                    <a href="#">가입</a>
+                </div>
             </div>
-        </div>
-        <div id="team-scd">
-            <p>경기일정</p>
-        </div>
-        <div id="team-squad">
-            <p>선수단</p>
+            {% endfor %}
         </div>
     </div>
 </div>

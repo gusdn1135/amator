@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate
-from .models import Notice
+from .models import Notice, Team, TeamAcc
 
 # Create your views here.
 def login(request):
@@ -11,9 +11,6 @@ def home(request):
 
 def team(request):
     return render(request, 'team.html')
-
-def team_src(request):
-    return render(request, 'team_src.html')
 
 def signup(request):
     return render(request, 'signup.html')
@@ -43,3 +40,8 @@ def login_view(request):
         else:
             print("인증실패")
     return render(request, "logini.html")
+
+def team_src(request):
+    teams = TeamAcc.objects.all()
+
+    return render(request, 'team_src.html', {'teams':teams})
