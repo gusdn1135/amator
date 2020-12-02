@@ -5,6 +5,13 @@ class Account(models.Model):
     id = models.CharField(db_column='ID', primary_key=True, max_length=10)  # Field name made lowercase.
     pw = models.CharField(db_column='PW', max_length=20)  # Field name made lowercase.
 
+    # Account 객체 생성
+    def create(self, id, pw):
+        self.id = id
+        self.pw = pw
+        self.save()
+
+
     class Meta:
         managed = False
         db_table = 'account'
@@ -140,6 +147,20 @@ class IndivAcc(models.Model):
     indiv_email = models.CharField(max_length=45)
     teamcode = models.ForeignKey('Team', models.DO_NOTHING, db_column='TeamCode', blank=True, null=True)  # Field name made lowercase.
 
+    # IndivAcc 객체 생성
+    def create(self, id, indiv_name, indiv_studentid, indiv_belong, indiv_sex,
+    indiv_bdate, indiv_address, indiv_pnumber, indiv_email):
+        self.id = id
+        self.indiv_name = indiv_name
+        self.indiv_studentid = indiv_studentid
+        self.indiv_belong = indiv_belong
+        self.indiv_sex = indiv_sex
+        self.indiv_bdate = indiv_bdate
+        self.indiv_address = indiv_address
+        self.indiv_pnumber = indiv_pnumber
+        self.indiv_email = indiv_email
+        self.save()
+
     class Meta:
         managed = False
         db_table = 'indiv_acc'
@@ -151,9 +172,19 @@ class League(models.Model):
     id = models.ForeignKey('OrgAcc', models.DO_NOTHING, db_column='ID')  # Field name made lowercase.
     league_name = models.CharField(max_length=45)
     league_date = models.DateField()
+    league_D_date = models.DateField()
     league_location = models.CharField(max_length=45)
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
+
+    # League 객체 생성
+    def create(self, id, league_name, league_date, league_D_date, league_location):
+        self.id = id
+        self.league_name = league_name
+        self.league_date = league_date
+        self.league_D_date = league_D_date
+        self.league_location = league_location
+        self.save()
 
     class Meta:
         managed = False
@@ -180,6 +211,12 @@ class Team(models.Model):
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
 
+    # Team 객체 생성
+    # Team Acc 생성 시 같이 생성되도록
+    def create(self, id):
+        self.id = id
+        self.save()
+
     class Meta:
         managed = False
         db_table = 'team'
@@ -192,8 +229,20 @@ class TeamAcc(models.Model):
     team_pic = models.TextField(blank=True, null=True)
     team_belong = models.CharField(max_length=45)
     cap_name = models.CharField(max_length=5)
+    # 여기 ...^^ email인데 eamil로 오타났는데... DB 수정하기가 귀찮아서 일단 eamil로 써주세요 호호
     cap_eamil = models.CharField(max_length=45)
     cap_pnumber = models.CharField(max_length=11)
+
+    # TeamAcc 객체 생성
+    # 팀 사진은 문제가 많아서 일단 생성에서는 제외함
+    def create(self, id, team_name, team_belong, cap_name, cap_eamil, cap_pnumber):
+        self.id = id
+        self.team_name = team_name
+        self.team_belong = team_belong
+        self.cap_name = cap_name
+        self.cap_eamil = cap_eamil
+        self.cap_pnumber = cap_pnumber
+        self.save()
 
     class Meta:
         managed = False
@@ -222,4 +271,3 @@ class Pr(models.Model):
 
     def summary(self):
         return self.content[:20]
-

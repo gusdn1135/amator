@@ -1,0 +1,32 @@
+리그 임시 (폼 테스트)
+<form  method="POST" action="{% url 'league_temp' %}">
+    {% csrf_token %}
+    <p>
+        <label for="league_name">리그 이름</label>
+        <input id="league_name" name="league_name" type='text' required="required" maxlength="45" autocomplete="off">
+    </p>
+    <br>
+    <p>
+        <label for="league_date">리그 날짜</label>
+        <input id="league_date" name="league_date" required="required" type='date'>
+    </p>
+    <br>
+    <p>
+        <label for="league_D_date">리그 신청 마감 기한</label>
+        <input id="league_D_date" name="league_D_date" required="required" type='date'>
+    </p>
+    <br>
+    <br>
+    <p>
+        <label for="league_location">리그 장소</label>
+        <input id="league_location" name="league_location" type="text" required="required" placeholder="경기장 위치 입력" autocomplete="off">
+    </p>
+    <br>
+    <input type="submit" style="font-size: 16px; height:30px; width:80px;" value="리그 생성">
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+        <strong>{{ message.tags }}!</strong> {{ message.message }}
+        {% endfor %}
+    {% endif %}
+</form>
