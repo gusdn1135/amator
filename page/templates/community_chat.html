@@ -3,10 +3,16 @@
 
 {% block content %}
 
-<div class="community_tap">
-    <a href="{% url 'community_notice' %}">공지사항&nbsp;&nbsp;</a>
-    <a href="{% url 'community_pr' %}">홍보 게시판&nbsp;&nbsp;</a>
-    <a href="{% url 'community_chat' %}" style="font-weight: bold;">잡담방</a>
+<div class="bg-bundle-league">
+    <div id="team-pagetab">
+        <button><a href="{% url 'home' %}">←</a></button>
+        <div class="pagetab">
+                <a href="{% url 'community_notice' %}" style="font-style: unset;">공지사항&nbsp;&nbsp;</a>
+                <a href="{% url 'community_pr' %}">홍보 게시판&nbsp;&nbsp;</a>
+                <a href="{% url 'community_chat' %}">잡담방</a>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
