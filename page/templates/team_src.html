@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="team-container">
+    <div id="team-pagetab">
+        <button><a href="{% url 'home' %}">←</a></button>
+        <div class="pagetab">
+            <a href="{% url 'team' %}">소속팀</a>
+            <a href="{% url 'team_src' %}">팀가입</a>
+        </div>
+    </div>
+
+    <div id="team-content">
+        <div id="team-info">
+            <p>팀 목록</p>
+            {% for team in teams %}
+            <div class="card-box">
+                <div class="img-gradient"></div>
+                <img src="{{team.team_pic}}" alt="">
+                <div class="text-wrap">
+                    <ul>
+                        <li class="team_name">{{team.team_name}}</li>
+                        <li class="team_belong">{{team.team_belong}}</li>
+                        <li>팀 소개</li>
+                    </ul>
+                </div>
+                <div class="apl-btn">
+                    <a href="#">가입</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

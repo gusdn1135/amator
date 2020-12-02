@@ -1,7 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
+
+from .models import Notice, Team, TeamAcc
+
 from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
 from django.contrib import messages
+
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -114,6 +118,21 @@ def community_notice_detail(request, notice_id):
     notice_detail = get_object_or_404(Notice, pk=notice_id)
 
     return render(request, 'community_notice_detail.html', {'notice': notice_detail})
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST("id")
+        password = request.POST("pw")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            print("인증성공")
+        else:
+            print("인증실패")
+    return render(request, "logini.html")
+
+def team_src(request):
+    teams = TeamAcc.objects.all()
+    return render(request, 'team_src.html', {'teams':teams})
+
 
 def league_detail(request):
     return render(request, "league_detail.html")
