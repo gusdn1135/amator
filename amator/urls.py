@@ -31,4 +31,5 @@ urlpatterns = [
     path('signup_type/', views.signup_type, name = 'signup_type'),
     path('signup_indiv/', views.signup_indiv, name = 'signup_indiv'),
     path('signup_team/', views.signup_team, name = 'signup_team'), 
+    path('league_temp/',views.league_temp, name='league_temp'),
 ]

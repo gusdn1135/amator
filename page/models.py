@@ -177,6 +177,14 @@ class League(models.Model):
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
 
+    # League 객체 생성
+    def create(self, id, league_name, league_date, league_location):
+        self.id = id
+        self.league_name = league_name
+        self.league_date = league_date
+        self.league_location = league_location
+        self.save()
+
     class Meta:
         managed = False
         db_table = 'league'
