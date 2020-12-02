@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
-from .models import Notice, Account, IndivAcc, TeamAcc
+from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
 from django.contrib import messages
 
 # Create your views here.
@@ -73,6 +73,23 @@ def signup_team(request):
     
 
     return render(request, 'signup_team.html')
+
+def league_temp(request):
+    if request.method == 'POST':
+        # 현재 접속중인 계정 정보 받아오기
+        current_account = request.session['user']
+        if(OrgAcc.objects.filter(id=current_account).exists()):
+            print('주최자 계정 접속 성공! 곧 리그 만들어드림!')
+            league = League(id = OrgAcc.objects.get(id=current_account), league_name=request.POST['league_name'],
+            league_date=request.POST['league_date'], league_location=request.POST['league_location'])
+            league.save()
+            print(league.leaguecode)
+            # 리그 생성 성공 시 임시로 home으로 redirect
+            return redirect('home')
+
+        else:
+            messages.error(request, '주최자 계정이 아닙니다!')
+    return render(request, 'league_temp.html')
 
 
 def community_notice(request):

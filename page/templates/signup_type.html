@@ -2,17 +2,66 @@
 {% load static %}
 
 {% block content %}
-회원가입 ID 종류를 선택해주세요
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amator</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("static/image/bi.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
 
-<form method="POST" action="{% url 'signup_type' %}">
-    {% csrf_token %}
-    <div>
-    <input type="radio" name="id_type" id="id_type" value="indiv" required = "required">개인
-    <input type="radio" name="id_type" id="id_type" value="team" required = "required">팀
-    </div>
+        .signup-form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vh;
+            height: 60vh;
+            margin-top: 5%;
+            border-radius: 14px;
+            background-color: #d6e0f0;
+            opacity: 80%;
+            text-align:center
+        }
+    </style>
+</head>
 
-    <div>
-    <input type="submit" value="회원가입">
+<body>
+    <div class="signup">
+        <div class="signup-form">
+            <p style="font-size: 25px; font-weight: bold;">amator<br><strong>JOIN</strong></p>
+            <br><p style="font-size:12px;">회원가입 ID 종류를 선택해 주세요</p><br>
+
+            <form method="POST" action="{% url 'signup_type' %}">
+                {% csrf_token %}
+                    <div>
+                    <input type="radio" name="id_type" id="id_type" value="indiv" required = "required">개인
+                    <input type="radio" name="id_type" id="id_type" value="team" required = "required">팀
+                    </div>
+                    
+                    <div style="margin-top:40%;">
+                    <input type="submit" style="font-size: 16px; height:30px; width:70px;" value="회원가입">
+                    </div>
+            </form>
+
+        </div>
     </div>
-</form>
+</body>
+
+<script>
+    function No(){
+        alert("회원가입이 불가능합니다. 메인페이지로 돌아갑니다.");
+        window.location.href='/';
+    }
+</script>
+</html>
 {% endblock %}
