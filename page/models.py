@@ -179,7 +179,7 @@ class League(models.Model):
     waiting = models.JSONField(blank=True, null=True)
 
     # League 객체 생성
-    def create(self, id, league_name, league_date, league_location, league_D_date):
+    def create(self, id, league_name, league_date, league_D_date, league_location):
         self.id = id
         self.league_name = league_name
         self.league_date = league_date
@@ -211,6 +211,12 @@ class Team(models.Model):
     id = models.ForeignKey('TeamAcc', models.DO_NOTHING, db_column='ID')  # Field name made lowercase.
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
+
+    # Team 객체 생성
+    # Team Acc 생성 시 같이 생성되도록
+    def create(self, id):
+        self.id = id
+        self.save()
 
     class Meta:
         managed = False
@@ -259,4 +265,3 @@ class Notice(models.Model):
 
     def summary(self):
         return self.content[:20]
-

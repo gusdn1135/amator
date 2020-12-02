@@ -23,11 +23,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('community_notice', views.community_notice, name='community_notice'),
     path('team/', views.team, name='team'),
-<<<<<<< HEAD
     path('team_src/', views.team_src, name='team_src'),
-    path('signup/', views.signup, name = 'signup'),
-=======
->>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
     path('community_notice', views.community_notice, name='community_notice'),
     path('community_pr', views.community_pr, name='community_pr'),
     path('community_chat', views.community_chat, name='community_chat'),

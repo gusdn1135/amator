@@ -1,15 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
-<<<<<<< HEAD
-from .models import Notice, Team, TeamAcc
-=======
-from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
+from .models import Notice, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
 from django.contrib import messages
-<<<<<<< HEAD
->>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
-=======
 from django.core.paginator import Paginator
->>>>>>> 23dfc5a6f2c15d643888fa2d3a4577c3e28ab97a
+
 
 # Create your views here.
 def login(request):
@@ -84,6 +78,9 @@ def signup_team(request):
             cap_eamil = request.POST['cap_email'], cap_pnumber = request.POST['cap_pnumber'])
             teamAcc.save()
 
+            team = Team(id = TeamAcc.objects.get(id=request.POST['id']))
+            team.save()
+
             return redirect('home')
     
 
@@ -96,7 +93,7 @@ def league_temp(request):
         if(OrgAcc.objects.filter(id=current_account).exists()):
             print('주최자 계정 접속 성공! 곧 리그 만들어드림!')
             league = League(id = OrgAcc.objects.get(id=current_account), league_name=request.POST['league_name'],
-            league_date=request.POST['league_date'], league_location=request.POST['league_location'])
+            league_date=request.POST['league_date'], league_D_date=request.POST['league_D_date'], league_location=request.POST['league_location'])
             league.save()
             print(league.leaguecode)
             # 리그 생성 성공 시 임시로 home으로 redirect
@@ -121,8 +118,6 @@ def community_notice_detail(request, notice_id):
     notice_detail = get_object_or_404(Notice, pk=notice_id)
 
     return render(request, 'community_notice_detail.html', {'notice': notice_detail})
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 def login_view(request):
     if request.method == "POST":
@@ -139,10 +134,6 @@ def team_src(request):
     teams = TeamAcc.objects.all()
 
     return render(request, 'team_src.html', {'teams':teams})
-=======
->>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
-=======
 
 def league_detail(request):
     return render(request, "league_detail.html")
->>>>>>> 23dfc5a6f2c15d643888fa2d3a4577c3e28ab97a
