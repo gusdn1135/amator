@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section>
+        <div class="bg-bundle-league">
+            <div id="team-pagetab">
+                <button class="btn-team"><a href="{% url 'home' %}">←</a></button>
+                <a><strong>리그정보</strong></a>
+                <a>리그등록</a>
+            </div>
+
+            <div class=t-bundle>
+                
+                <table>
+                    <tr class="t-head">
+                        <th class="l-title">리그명</th>
+                        <th class="l-organizer">주최자</th>
+                        <th class="l-ddate">마감일</th>
+                    </tr>
+                    {% for league in league %}
+                    <tr id="first">
+                        <td id="1-1"><a href="#" class="ltitle">{{ league.league_name }}</a></td>
+                        <td id="1-2">연세대학교</td>
+                        <td id="1-3">{{ league.league_D_date|date:"Y년 m월 d일" }}</td>
+                    </tr>
+                    {% endfor %}
+    
+                </table>
+
+                <h3 class="league-p">
+                    {% if league.has_previous %}
+                    <a href="?page={{league.number|add:-1}}">Previous</a>
+                    {% endif %}
+                    Page {{ league.number }} of {{ league.paginator.num_pages }}
+
+                    {% if rooms.has_next %}
+                    <a href='?page={{league.number|add:+1}}'>Next</a>
+                    {%endif %}
+
+                </h3>
+            </div>
+        </div>
+    </section>
+
+
+    {% endblock %}

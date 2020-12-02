@@ -315,3 +315,82 @@ button{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     margin-top: 10px;
 }
+
+/* league-list */
+.bg-bundle-league {
+    width: 80vw;
+    height: 80vh;
+    background-color: #d6e0f0;
+    opacity: 80%;
+    border-radius: 14px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.lg-bundle {
+    display: flex;
+    padding: 60px;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.league_info {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.league_up {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    
+}
+
+.t-bundle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 40px;
+    width: 90%;
+    
+}
+
+.t-head {
+    font-size: 1.2rem;
+    height: 20px;
+    vertical-align: middle;
+}
+
+tr:nth-child(even){
+    background:ghostwhite;
+}
+
+td {
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ltitle {
+    color: #000000;
+}
+
+.league-p {
+    position: absolute;
+    left: 48%;
+    bottom: 30px;
+}
+
+/* league_detail */
+
+.league_title{
+    size: 3rem;
+    padding: 20px;
+    font-weight: 700;
+}

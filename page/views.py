@@ -5,7 +5,11 @@ from .models import Notice, Team, TeamAcc
 =======
 from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
 from django.contrib import messages
+<<<<<<< HEAD
 >>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
+=======
+from django.core.paginator import Paginator
+>>>>>>> 23dfc5a6f2c15d643888fa2d3a4577c3e28ab97a
 
 # Create your views here.
 def login(request):
@@ -30,6 +34,13 @@ def home(request):
 
 def team(request):
     return render(request, 'team.html')
+
+def league(request):
+    leagueList = League.objects.all()
+    paginator = Paginator(leagueList, 5)
+    page = request.GET.get('page')
+    league = paginator.get_page(page)
+    return render(request, 'league.html', context={'league':league})
 
 def signup_agreement(request):
     if request.method == 'POST':
@@ -111,6 +122,7 @@ def community_notice_detail(request, notice_id):
 
     return render(request, 'community_notice_detail.html', {'notice': notice_detail})
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 def login_view(request):
     if request.method == "POST":
@@ -129,3 +141,8 @@ def team_src(request):
     return render(request, 'team_src.html', {'teams':teams})
 =======
 >>>>>>> 4a6f494961f4d70e8f69c8c41409e1997dde8121
+=======
+
+def league_detail(request):
+    return render(request, "league_detail.html")
+>>>>>>> 23dfc5a6f2c15d643888fa2d3a4577c3e28ab97a
