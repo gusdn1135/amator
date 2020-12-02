@@ -210,6 +210,12 @@ class Team(models.Model):
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
 
+    # Team 객체 생성
+    # Team Acc 생성 시 같이 생성되도록
+    def create(self, id):
+        self.id = id
+        self.save()
+
     class Meta:
         managed = False
         db_table = 'team'

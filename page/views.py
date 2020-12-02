@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
-from .models import Notice, Account, IndivAcc, TeamAcc, OrgAcc, League
+from .models import Notice, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
 from django.contrib import messages
 
 # Create your views here.
@@ -68,6 +68,9 @@ def signup_team(request):
             team_belong = request.POST['team_belong'], cap_name = request.POST['cap_name'],
             cap_eamil = request.POST['cap_email'], cap_pnumber = request.POST['cap_pnumber'])
             teamAcc.save()
+
+            team = Team(id = TeamAcc.objects.get(id=request.POST['id']))
+            team.save()
 
             return redirect('home')
     
