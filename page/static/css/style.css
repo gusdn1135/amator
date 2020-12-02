@@ -134,6 +134,12 @@ a {
     box-shadow: 0 20px 35px rgba(0,0,0,0.26);
     margin: 10px;
 }
+.card-box img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    background-size: cover;
+}
 .img-gradient {
     position: absolute;
     left: 0;

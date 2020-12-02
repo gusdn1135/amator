@@ -4,7 +4,6 @@ from .models import Notice, Pr, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
 from django.contrib import messages
 from django.core.paginator import Paginator
 
-
 # Create your views here.
 def login(request):
     if request.method == 'POST':
