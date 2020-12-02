@@ -2,28 +2,33 @@
 {% load static %}
 
 {% block content %}
+<div class="bg-bundle-league">
+    <div id="team-pagetab">
+        <button><a href="{% url 'home' %}">←</a></button>
+        <div class="pagetab">
+                <a href="{% url 'community_notice' %}" style="font-style: unset;">공지사항&nbsp;&nbsp;</a>
+                <a href="{% url 'community_pr' %}">홍보 게시판&nbsp;&nbsp;</a>
+                <a href="{% url 'community_chat' %}">잡담방</a>
+        </div>
 
-<div class="community_tap">
-    <a href="{% url 'community_notice' %}" style="font-weight: bold;">공지사항&nbsp;&nbsp;</a>
-    <a href="{% url 'community_pr' %}">홍보 게시판&nbsp;&nbsp;</a>
-    <a href="{% url 'community_chat' %}">잡담방</a>
+        <table>
+            <tr style="text-align: center; font-size: 20px; font-weight: bold;">
+                <td style="width: 150px;">제목</td>
+                <td style="width: 300px;">내용</td>
+                <td style="width: 200px;">작성일</td>
+            </tr>
+            {% for notice in notices %}
+            <tr>
+                <td style="padding-top: 20px;">{{ notice.title }}</td>
+                <td style="padding-top: 20px;"><a
+                        href="{% url 'community_notice_detail' notice.id %}">{{ notice.summary}}</a>
+                </td>
+                <td style="padding-top: 20px;">{{ notice.create_at|date:"Y년 m월 d일"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
-
-
-<table>
-    <tr style="text-align: center; font-size: 20px; font-weight: bold;">
-        <td style="width: 150px;">제목</td>
-        <td style="width: 300px;">내용</td>
-        <td style="width: 200px;">작성일</td>
-    </tr>
-    {% for notice in notices %}
-    <tr>
-        <td style="padding-top: 20px;">{{ notice.title }}</td>
-        <td style="padding-top: 20px;"><a href="{% url 'community_notice_detail' notice.id %}">{{ notice.summary}}</a></td>
-        <td style="padding-top: 20px;">{{ notice.create_at|date:"Y년 m월 d일"}}</td>
-    </tr>
-    {% endfor %}
-</table>
 
 
 
