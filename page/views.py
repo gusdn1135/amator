@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
 from .models import Notice, Pr, Account, IndivAcc, TeamAcc, Team, OrgAcc, League
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -27,6 +28,13 @@ def home(request):
 
 def team(request):
     return render(request, 'team.html')
+
+def league(request):
+    leagueList = League.objects.all()
+    paginator = Paginator(leagueList, 5)
+    page = request.GET.get('page')
+    league = paginator.get_page(page)
+    return render(request, 'league.html', context={'league':league})
 
 def signup_agreement(request):
     if request.method == 'POST':
@@ -128,3 +136,11 @@ def login_view(request):
         else:
             print("인증실패")
     return render(request, "logini.html")
+
+def team_src(request):
+    teams = TeamAcc.objects.all()
+
+    return render(request, 'team_src.html', {'teams':teams})
+
+def league_detail(request):
+    return render(request, "league_detail.html")

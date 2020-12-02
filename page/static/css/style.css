@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .body_contents {
@@ -10,18 +11,19 @@
     font-weight: 400;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 10px;
 }
 
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 
-
-
 /* 상단바 */
+.header_inner a {
+    color: #fff;
+}
+
 .header_inner {
     max-width:90vw;
     margin: 0 auto;
@@ -114,58 +116,154 @@ a {
        background: #166cea;
        width: 150px;
        height: 40px;
-       
-   }
+    }
+
+    .btn a{
+        color: #fff;
+    }
 
 /* 팀 */
-button .btn-team{
-    border: black 2px solid;
-    border-radius: 50%;
-    background-color: white;
-    font-size: 20px;
+.card-box {
+    display: inline-block;
+    position: relative;
+    border-radius: 10%;
+    overflow: hidden;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.26);
+    margin: 10px;
+}
+.img-gradient {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+}
+.text-wrap {
+    position: absolute;
+    bottom: 0;
+    padding: 24px;
+    z-index: 1;
+}
+.text-wrap {
+    color: #fff;
+}
+.text-wrap .team_name{
+    margin-bottom: 4px;
+    font-size: 1.2rem;
     font-weight: bold;
-    padding-bottom: 5px;
-    float: left;
+}
+.text-wrap .team_belong{
+    margin-bottom: 2px;
+}
+.apl-btn {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #166cea;
+    border-radius: 25%;
+    text-align: center;
+}
+.apl-btn a{
+    font-size: 0.8rem;
+    color: #fff;
 }
 
+#team-info p {
+    margin-bottom: 24px;
+}
+#team-list {
+    margin-bottom: 42px;
+}
+#team-list table {
+    display: inline;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #000000;
+
+}
+
+button{
+    border: black 3px solid;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    float: left;
+}
+#team-pagetab {
+    padding: 20px 42px;
+}
+#team-pagetab .pagetab a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+#team-content {
+    margin: 0px 10%;
+}
+#team-content p {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.team-container {
+    width: 80vw;
+    height: 80vh;
+    background-color: #d6e0f0;
+    opacity: 80%;
+    border-radius: 14px;
+    margin-top: 20px;
+}
 .team-container #team-pagetab {
     text-align: center;
     vertical-align: bottom;
 }
-
 .team-container #team-content {
-    padding: 0 36px 0 36px;
+    padding: 36px 36px 0 36px;
+}
+#team-pagetab .pagetab {
+    padding-top: 12px;
 }
 
 #login-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding-left: 36px;
     text-align: center;
 }
-
 #login-message button {
     padding: 2px 12px;
 }
-
 #login-message p {
-    margin-top: 0;
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin: 20px 0px;
 }
-
 #login-message a {
     text-decoration: none;
     padding: 2px 5px 3px 5px;
-    border: 1px solid grey;
-    background-color: grey;
+    border: 1px solid #166cea;
+    background-color: #166cea;
     color: white;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-radius: 25px;
+    padding: 5px 75px;
 }
-
 #login:focus {
     outline: none;
 }
-
 #login:hover {
     cursor: pointer;
 }
@@ -173,17 +271,18 @@ button .btn-team{
 /* footer */
 
 .footer_container{
-    width: 80vw;
+    width: 80%;
     height:50px;
     position:absolute;
     bottom:0;
     align-items: center;
     justify-content: center;
+    color: #fff
 }
 
 .footer_container a {
     text-decoration: none;
-    color: #000000;
+    color: #fff
 }
 
 .footer_container ul,
@@ -236,4 +335,88 @@ td {
     border-bottom: 1px solid #444444;
     padding: 10px;
     text-align: center;
+}
+
+/* league-list */
+.bg-bundle-league {
+    width: 80vw;
+    height: 80vh;
+    background-color: #d6e0f0;
+    opacity: 80%;
+    border-radius: 14px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.lg-bundle {
+    display: flex;
+    padding: 60px;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.league_info {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.league_up {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    
+}
+
+.t-bundle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 40px;
+    width: 90%;
+    
+}
+
+.t-head {
+    font-size: 1.2rem;
+    height: 20px;
+    vertical-align: middle;
+}
+
+tr:nth-child(even){
+    background:ghostwhite;
+}
+
+td {
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ltitle {
+    color: #000000;
+}
+
+.league-p {
+    position: absolute;
+    left: 48%;
+    bottom: 30px;
+}
+
+.bg-bundle-league #team-pagetab {
+    text-align: center;
+    vertical-align: bottom;
+}
+
+/* league_detail */
+
+.league_title{
+    size: 3rem;
+    padding: 20px;
+    font-weight: 700;
 }

@@ -50,10 +50,10 @@
                     </div>
 
                     <ul class="aside-inner">
-                        <li id="home"><a href="#">HOME</a></li>
-                        <li id="team"><a href="#">TEAM</a></li>
-                        <li id="league"><a href="#">LEAGUE</a></li>
-                        <li id="community"><a href="#">COMMUNITY</a></li>
+                        <li id="home"><a href="{% url 'home' %}">HOME</a></li>
+                        <li id="team"><a href="{% url 'team' %}">TEAM</a></li>
+                        <li id="league"><a href="{% url 'league' %}">LEAGUE</a></li>
+                        <li id="community"><a href="{% url 'community_notice' %}">COMMUNITY</a></li>
                         <li id="community"><a href="#">MY PAGE</a></li>
                     </ul>
                 </div>
@@ -67,8 +67,7 @@
         <div class="footer_container">
             <div class="footer_inner">
                 <ul id="footer">
-                    <li><a href="#">개인정보처리방침 |
-                        </a></li>
+                    <li><a href="#">개인정보처리방침 |</a></li>
                     <li><a href="#">서비스이용약관</a></li>
                 </ul>
             </div>
@@ -77,10 +76,6 @@
             </div>
         </div>
     </div>
-       
-    </div>
-
-
 </body>
 
 </html>

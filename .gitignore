@@ -13,3 +13,4 @@ media
 venv
 amator.__pycache__
 page.__pycache__
+my_settings.py
