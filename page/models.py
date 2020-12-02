@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -259,6 +258,18 @@ class Notice(models.Model):
     title = models.CharField(max_length=500)
     content = models.TextField()
     create_at = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.title
+
+    def summary(self):
+        return self.content[:20]
+
+class Pr(models.Model):
+    title = models.CharField(max_length=500)
+    content = models.TextField()
+    create_at = models.DateTimeField(null=True)
+    author = Account.id
 
     def __str__(self):
         return self.title
