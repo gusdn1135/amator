@@ -225,6 +225,7 @@ class Team(models.Model):
 
 
 class TeamAcc(models.Model):
+    objects = models.Manager()
     id = models.OneToOneField(Account, models.DO_NOTHING, db_column='ID', primary_key=True)  # Field name made lowercase.
     team_name = models.CharField(max_length=45)
     team_pic = models.TextField(blank=True, null=True)
@@ -250,7 +251,11 @@ class TeamAcc(models.Model):
         db_table = 'team_acc'
         unique_together = (('id', 'team_name'),)
 
+    def __str__(self):
+        return self.team_name
+
 class Notice(models.Model):
+    objects = models.Manager()
     title = models.CharField(max_length=500)
     content = models.TextField()
     create_at = models.DateTimeField(null=True)
