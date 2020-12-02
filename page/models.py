@@ -173,15 +173,17 @@ class League(models.Model):
     id = models.ForeignKey('OrgAcc', models.DO_NOTHING, db_column='ID')  # Field name made lowercase.
     league_name = models.CharField(max_length=45)
     league_date = models.DateField()
+    league_D_date = models.DateField()
     league_location = models.CharField(max_length=45)
     participants = models.JSONField(blank=True, null=True)
     waiting = models.JSONField(blank=True, null=True)
 
     # League 객체 생성
-    def create(self, id, league_name, league_date, league_location):
+    def create(self, id, league_name, league_date, league_location, league_D_date):
         self.id = id
         self.league_name = league_name
         self.league_date = league_date
+        self.league_D_date = league_D_date
         self.league_location = league_location
         self.save()
 
